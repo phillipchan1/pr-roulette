@@ -1,0 +1,20 @@
+<div ng-controller="settingsController">
+	{{settingsUpdateStatus}}
+
+	<div class="panel">
+		<aside class="panel-header">
+			<i class="fa fa-cog" aria-hidden="true"></i>
+			Settings
+		</aside>
+		<div class="panel-content">
+			<tabs>
+				<pane title="General">
+					<div ng-include="'app/components/settings/settings.view.general.html'"></div>
+				</pane>
+				<pane title="Shopify Settings">
+					<div ng-include="'app/components/settings/settings.view.shopify.html'"></div>
+				</pane>
+			</tabs>
+		</div>
+	</div>
+</div>

@@ -2,17 +2,30 @@
   "name": "boilerplate-nodejs",
   "version": "1.0.0",
   "description": "A boilerplate that demonstrates the Node.js container",
-  "main": "index.js",
+  "main": "server/index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "concurrently  \"sudo nodemon\" gulp mongod \"open http://localhost:8000\""
   },
   "dependencies": {
+    "angular": "^1.5.8",
+    "angular-animate": "^1.5.8",
+    "angular-ui-router": "^0.3.2",
+    "bcryptjs": "^2.3.0",
+    "body-parser": "^1.15.2",
     "express": "^4.14.0",
+    "jquery": "^3.1.1",
     "jsonwebtoken": "^7.1.9",
     "mongoose": "^4.6.8",
     "morgan": "^1.7.0"
   },
   "devDependencies": {
-    "nodemon": "^1.11.0"
+    "concurrently": "^3.1.0",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-livereload": "^3.8.1",
+    "gulp-minify": "0.0.14",
+    "gulp-sass": "^2.3.2",
+    "nodemon": "^1.11.0",
+    "run-sequence": "^1.2.2"
   }
 }

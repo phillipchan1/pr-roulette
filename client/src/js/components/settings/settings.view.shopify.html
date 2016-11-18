@@ -1,0 +1,20 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-6 col-xs-12">
+		<form>
+			<ng-form name="userSettings">
+				<div class="form-group" ng-repeat="(key, val) in userConfig.shopifyAPI">
+					<label for="exampleInputEmail1">{{key | titleCase}}:</label>
+					<input type="text" ng-model="userConfig.shopifyAPI[key]" class="form-control" id="exampleInputEmail1">
+				</div>
+			</ng-form>
+		</form>
+		</div>
+	</div>
+
+	<div class="block-container justify-start no-padding standard-padding-vertical">
+		<button class="btn btn-primary panel-button" ng-click="updateSettings()">Update Settings</button>
+	</div>
+</div>
+
+

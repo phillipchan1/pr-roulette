@@ -1,0 +1,1 @@
+const authentication = angular.module('authentication', []);

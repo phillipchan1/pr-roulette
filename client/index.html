@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app="prroulette" ng-controller="mainController">
+<head>
+	<base href="/">
+	<link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,400i,700" rel="stylesheet">
+	<link rel="stylesheet" href="assets/app.min.css" />
+	<title>PR Roulette</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
+</head>
+<body>
+
+	<div class="prroulette container-fluid no-padding">
+		<a ui-sref="registration">Register</a>
+		<a ui-sref="login">Login</a>
+		<div ui-view></div>
+
+	</div>
+
+	<!-- scripts - bundled by gulpfile.js-->
+	<script src="js/app.js"></script>
+
+</body>
+</html>
