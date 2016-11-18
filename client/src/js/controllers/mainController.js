@@ -53,7 +53,7 @@ prroulette.controller('mainController',
 	$scope.logout = function() {
 		tokenService.removeJWToken();
 		prrouletteModel.logout();
-		$location.path('login');
+		$location.path('home');
 	};
 
 	$scope.notify = function(options) {

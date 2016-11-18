@@ -1,0 +1,17 @@
+<div ng-controller="homeController">
+
+	<!-- Not logged in -->
+	<div class="block-container justify-center align-center w-100" ng-show="!loggedIn">
+		not logged in
+
+		<a ui-sref="registration">Register</a>
+		<a ui-sref="login">Login</a>
+
+		<div ui-view></div>
+	</div>
+
+	<!-- logged in -->
+	<div ng-show="loggedIn" ng-include="'app/components/dashboard/dashboard.html.html'">
+
+</div>
+

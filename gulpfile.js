@@ -43,6 +43,10 @@ gulp.task('scripts', function() {
 		'client/src/js/components/authentication/registration.controller.js',
 		'client/src/js/components/authentication/login.controller.js',
 
+		// home
+		'client/src/js/components/home/home.module.js',
+		'client/src/js/components/home/home.controller.js',
+
 		// dashboard
 		'client/src/js/components/dashboard/dashboard.module.js',
 		'client/src/js/components/dashboard/dashboard.controller.js'

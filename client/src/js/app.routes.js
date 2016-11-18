@@ -8,6 +8,12 @@ prroulette.config(function($stateProvider, $urlRouterProvider, $locationProvider
     });
 
 	$stateProvider
+
+		.state('home', {
+			url: '/',
+			templateUrl: 'src/js/components/home/home.view.html'
+		})
+
 		.state('dashboard', {
 			url: '/dashboard',
 			templateUrl: 'src/js/components/dashboard/dashboard.html'

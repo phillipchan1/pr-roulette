@@ -396,6 +396,7 @@ const prroulette = angular.module(
 
         // modules
         'authentication',
+        'home',
         'dashboard'
 
     ]
@@ -471,6 +472,12 @@ prroulette.config(function($stateProvider, $urlRouterProvider, $locationProvider
     });
 
 	$stateProvider
+
+		.state('home', {
+			url: '/',
+			templateUrl: 'src/js/components/home/home.view.html'
+		})
+
 		.state('dashboard', {
 			url: '/dashboard',
 			templateUrl: 'src/js/components/dashboard/dashboard.html'
@@ -686,13 +693,6 @@ prroulette.controller('mainController',
 		$location.path('login');
 	};
 
-	// global UI events
-	$scope.toggleSidebar = function() {
-		$('.sidebar').toggleClass('show');
-		$('.app-content').toggleClass('sidebar-expanded');
-		$('.topbar').toggleClass('sidebar-expanded');
-	};
-
 	$scope.notify = function(options) {
 		var notificationBar = $('.notification-bar');
 
@@ -792,6 +792,11 @@ authentication.controller('loginController', function($http, $stateParams, $stat
 			}
 		});
 	};
+});
+const home = angular.module('home', []);
+
+home.controller('homeController', function($scope, prrouletteModel) {
+	$scope.config = prrouletteModel.config;
 });
 const dashboard = angular.module('dashboard', []);
 

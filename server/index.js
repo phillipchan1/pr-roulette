@@ -5,25 +5,18 @@ var app = express();
 var parser = require('body-parser');
 var mongoose    = require('mongoose');
 
-mongoose.connect('mongodb://localhost/pr-roulette', function(err) {
-	if (err) {
-		console.error("failed to connect to db");
-	} else {
-		console.log("connected to db");
-	}
-}); // connect to database
+// connect to database
+require('./models/database');
 
 // get method for parsing body
 app.use(parser.json());
 app.use(parser.urlencoded({ extended: false }));
 
-
+// routes
 var routes = require('./app.routes.js');
 app.use('/api', routes);
 
-// app.use(morgan('combined'));
-
-
+// static files
 app.use('/', express.static('client/'));
 
 app.listen(8000, function () {

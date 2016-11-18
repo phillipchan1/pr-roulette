@@ -11,11 +11,11 @@ authentication.controller('registrationController', function($http, $scope, $loc
 			url: '/api/register',
 			data: user
 		}).then(function(response) {
-			
+
 			if (response.data.success === true) {
 				// login and redirect
-				 $location.path('home')
-			}		
+				 $location.path('home');
+			}
 				// show error message
 			else {
 				$scope.errorMessage = response.data.message;

@@ -6,6 +6,7 @@ const prroulette = angular.module(
 
         // modules
         'authentication',
+        'home',
         'dashboard'
 
     ]
