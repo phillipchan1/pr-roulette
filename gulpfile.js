@@ -49,7 +49,12 @@ gulp.task('scripts', function() {
 
 		// dashboard
 		'client/src/js/components/dashboard/dashboard.module.js',
-		'client/src/js/components/dashboard/dashboard.controller.js'
+		'client/src/js/components/dashboard/dashboard.controller.js',
+
+		// teams
+		'client/src/js/components/teams/teams.module.js',
+		'client/src/js/components/teams/teams.controller.js',
+		'client/src/js/components/teams/teams.model.js'
 
 		])
 	.pipe(concat('app.js'))

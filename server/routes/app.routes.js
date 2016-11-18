@@ -2,9 +2,9 @@
 
 var express = require('express');
 var router = express.Router();
-var User = require('./models/user');
+var User = require('../models/user');
 var jwt = require('jsonwebtoken');
-var config = require('./config');
+var config = require('../config');
 
 // registering new user
 router.post('/register', function(req, res, next) {
@@ -109,5 +109,98 @@ router.get('/verify', function(req, res, next) {
         });
     }
 });
+
+// protected routes middleware
+// everything below is protected
+router.use(function(req, res, next) {
+    var token = req.body.token || req.query.token || req.headers['x-access-token'] || req.headers.token;
+
+    if (token) {
+        jwt.verify(token, config.secret, function(err, decoded) {
+            if (err) {
+                res.json({
+                    success: false,
+                    message: 'Error: jwtoken invalid'
+                });
+            }
+            // success:
+            else {
+                let decoded = jwt.decode(token);
+
+                // save these in every subsequent request
+                req.config = decoded._doc.config;
+                req.user_id = decoded._doc._id;
+                req.email = decoded._doc.email;
+                req.shopifyAPI = decoded._doc.config.shopifyAPI;
+                next();
+            }
+        });
+    } else {
+        res.status(403).json({
+            succes: false,
+            message: 'No token provided'
+        });
+
+        console.log("Error: no token provided");
+    }
+});
+
+// get user config
+router.get('/config', function(req, res, next) {
+    User.findById(req.user_id, function (err, user) {
+        if (err) {
+            res.status(400).json({
+                success: false,
+                message: "Could not retrieve user"
+            });
+        } else {
+            res.json({
+                success: true,
+                data: user.config
+            });
+        }
+    });
+});
+
+router.post('/config', function(req, res, next) {
+    User.findById(req.user_id, function (err, user) {
+        if (err) {
+            res.status(400).json({
+                success: false,
+                message: "Could not retrieve user"
+            });
+        } else {
+
+            for (var key in req.body.config) {
+              if (req.body.config.hasOwnProperty(key)) {
+                user.config[key] = req.body.config[key];
+              }
+            }
+
+            user.markModified('config');
+
+            user.save(function (err, user) {
+                if (err) {
+                    res.json({
+                        success: false,
+                        messsage: "Error saving into DB"
+                    });
+                }
+
+                else {
+                    res.json({
+                        success: true,
+                        message: "User Updated",
+                        data: user.config
+                    });
+                }
+            });
+        }
+    });
+});
+
+// requests functionality
+var teamRoutes = require('./teams.routes');
+router.use('/teams', teamRoutes);
 
 module.exports = router;

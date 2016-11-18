@@ -13,7 +13,7 @@ app.use(parser.json());
 app.use(parser.urlencoded({ extended: false }));
 
 // routes
-var routes = require('./app.routes.js');
+var routes = require('./routes/app.routes.js');
 app.use('/api', routes);
 
 // static files

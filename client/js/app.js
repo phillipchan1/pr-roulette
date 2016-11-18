@@ -501,14 +501,14 @@ prroulette.config(function($stateProvider, $urlRouterProvider, $locationProvider
 			templateUrl: 'src/js/components/publicListPage/publicListPage.view.html'
 		})
 
-		.state('requests', {
-			url: '/requests',
-			templateUrl: 'src/js/components/requestLists/requestLists.view.html'
+		.state('teams', {
+			url: '/teams',
+			templateUrl: 'src/js/components/teams/teams.view.html'
 		})
 
-		.state('request', {
-			url: '/request/:id',
-			templateUrl: 'src/js/components/request/request.view.html'
+		.state('team', {
+			url: '/team/:id',
+			templateUrl: 'src/js/components/team/team.view.html'
 		})
 
 			.state('request.main', {
@@ -690,7 +690,7 @@ prroulette.controller('mainController',
 	$scope.logout = function() {
 		tokenService.removeJWToken();
 		prrouletteModel.logout();
-		$location.path('login');
+		$location.path('home');
 	};
 
 	$scope.notify = function(options) {
@@ -746,11 +746,11 @@ authentication.controller('registrationController', function($http, $scope, $loc
 			url: '/api/register',
 			data: user
 		}).then(function(response) {
-			
+
 			if (response.data.success === true) {
 				// login and redirect
-				 $location.path('home')
-			}		
+				 $location.path('home');
+			}
 				// show error message
 			else {
 				$scope.errorMessage = response.data.message;
@@ -801,5 +801,9 @@ home.controller('homeController', function($scope, prrouletteModel) {
 const dashboard = angular.module('dashboard', []);
 
 dashboard.controller('dashboardController', function($scope, prrouletteModel) {
+	$scope.config = prrouletteModel.config;
+});
+const teams = angular.module('teams', []);
+teams.controller('teamsController', function($scope, prrouletteModel) {
 	$scope.config = prrouletteModel.config;
 });

@@ -1,0 +1,1 @@
+const teams = angular.module('teams', []);

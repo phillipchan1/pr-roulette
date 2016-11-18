@@ -37,14 +37,14 @@ prroulette.config(function($stateProvider, $urlRouterProvider, $locationProvider
 			templateUrl: 'src/js/components/publicListPage/publicListPage.view.html'
 		})
 
-		.state('requests', {
-			url: '/requests',
-			templateUrl: 'src/js/components/requestLists/requestLists.view.html'
+		.state('teams', {
+			url: '/teams',
+			templateUrl: 'src/js/components/teams/teams.view.html'
 		})
 
-		.state('request', {
-			url: '/request/:id',
-			templateUrl: 'src/js/components/request/request.view.html'
+		.state('team', {
+			url: '/team/:id',
+			templateUrl: 'src/js/components/team/team.view.html'
 		})
 
 			.state('request.main', {
