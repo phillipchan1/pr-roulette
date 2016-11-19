@@ -7,7 +7,9 @@ const prroulette = angular.module(
         // modules
         'authentication',
         'home',
-        'dashboard'
+        'dashboard',
+        'teams',
+        'roulette'
 
     ]
 );

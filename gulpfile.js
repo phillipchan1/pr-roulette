@@ -20,10 +20,12 @@ gulp.task('scripts', function() {
 		// angular
 		'node_modules/angular/angular.min.js',
 
-		// angular plugins
+		// plugins
 		'node_modules/angular-ui-router/release/angular-ui-router.min.js',
 		'node_modules/angular-animate/angular-animate.min.js',
 		'node_modules/jquery/dist/jquery.min.js',
+		'client/src/js/plugins/roulette.min.js',
+		'client/src/js/plugins/html2canvas.js',
 
 		// our app
 		'client/src/js/app.module.js',
@@ -54,7 +56,12 @@ gulp.task('scripts', function() {
 		// teams
 		'client/src/js/components/teams/teams.module.js',
 		'client/src/js/components/teams/teams.controller.js',
-		'client/src/js/components/teams/teams.model.js'
+		'client/src/js/components/teams/teams.model.js',
+
+		// roulette
+		'client/src/js/components/roulette/roulette.module.js',
+		'client/src/js/components/roulette/roulette.controller.js',
+		'client/src/js/components/roulette/roulette.model.js'
 
 		])
 	.pipe(concat('app.js'))
@@ -69,7 +76,7 @@ gulp.task('refresh', function() {
 // Watch for changes
 gulp.task('watch', function() {
 	// Watch .js files
-	gulp.watch('client/src/js/*.js', ['scripts', 'refresh']);
+	gulp.watch('client/src/js/**/*.js', ['scripts', 'refresh']);
 	// Watch .scss files
 	gulp.watch('client/src/scss/*.scss', ['sass', 'refresh']);
 	// Watch HTML files

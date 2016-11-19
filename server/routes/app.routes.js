@@ -81,6 +81,11 @@ router.post('/login', function(req, res, next) {
     });
 });
 
+// team functionality
+var publicRoutes = require('./public.routes');
+router.use('/public', publicRoutes);
+
+
 // verify a json web token
 router.get('/verify', function(req, res, next) {
     var token = req.headers.token;
@@ -109,6 +114,8 @@ router.get('/verify', function(req, res, next) {
         });
     }
 });
+
+
 
 // protected routes middleware
 // everything below is protected
@@ -199,8 +206,8 @@ router.post('/config', function(req, res, next) {
     });
 });
 
-// requests functionality
+// team functionality
 var teamRoutes = require('./teams.routes');
-router.use('/teams', teamRoutes);
+router.use('/', teamRoutes);
 
 module.exports = router;

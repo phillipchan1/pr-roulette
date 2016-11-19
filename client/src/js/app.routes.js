@@ -42,9 +42,14 @@ prroulette.config(function($stateProvider, $urlRouterProvider, $locationProvider
 			templateUrl: 'src/js/components/teams/teams.view.html'
 		})
 
-		.state('team', {
-			url: '/team/:id',
-			templateUrl: 'src/js/components/team/team.view.html'
+		.state('team/edit', {
+			url: '/team/edit/:id',
+			templateUrl: 'src/js/components/teams/team.view.html'
+		})
+
+		.state('team/view', {
+			url: '/team/view/:id',
+			templateUrl: 'src/js/components/roulette/roulette.view.html'
 		})
 
 			.state('request.main', {

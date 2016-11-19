@@ -1,6 +1,8 @@
-this is team view
-
-<div>
-
-
+<div class="teams-container" ng-controller="teamsController">
+	<button ng-click="makeTeam()">Make Team</button>
+	<article class="card" ng-repeat="team in teams" data-id="{{team._id}}">
+		<h2>{{team.settings.name}}</h2>
+		Members: {{team.members.length}}
+		<button ui-sref="team/edit({id: team._id})">View</button>
+	</article>
 </div>

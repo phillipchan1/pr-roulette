@@ -1,0 +1,18 @@
+<div ng-controller="rouletteController">
+
+	<h2>{{team.settings.name}}</h2>
+	<h3>PR Roulette</h3>
+
+	<p>Find out Who Is Going to Review</p>
+
+	Members
+	<div class="member-list" style="opacity:0">
+		<span class="member" ng-repeat="member in team.members" style="font-size:3em">
+			{{member.name}}
+		</span>
+	</div>
+
+	<div class="roulette" style="display:none;"></div>
+
+	<button class="start">Spin Wheel</button>
+</div>

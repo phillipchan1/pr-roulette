@@ -1,0 +1,17 @@
+<div ng-controller="teamController">
+	<a ui-sref="teams">Go Back</a>
+	<a target="_blank" href="/#/team/view/{{team._id}}">Play Roulette!</a>
+
+	Team Name:
+	<input class="editable" type="text" ng-model="team.settings.name" ng-blur="updateSettings(team.settings)"></h2>
+
+	<div class="member-list-container">
+		Team Members:
+		<button ng-click="addMember()">Add Member</button>
+
+		<article ng-repeat="member in team.members">
+			<input class="editable" type="text" ng-model="member.name" ng-blur="updateMembers()"/>
+			<button ng-click="removeMember($index)">Remove</button>
+		</article>
+	</div>
+</div>

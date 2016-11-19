@@ -1,0 +1,11 @@
+@import 'plugins/normalize';
+@import 'plugins/skeleton';
+
+@import 'variables';
+@import 'utilities';
+@import 'forms';
+
+.card {
+	border: 1px solid rgba(0,0,0,0.1);
+	padding: $standardSpacing;
+}
