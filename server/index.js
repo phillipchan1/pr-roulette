@@ -19,6 +19,6 @@ app.use('/api', routes);
 // static files
 app.use('/', express.static('client/'));
 
-app.listen(8000, function () {
+app.listen(process.env.PORT || 8000, function () {
   console.log('Listening on port 8000');
 });
