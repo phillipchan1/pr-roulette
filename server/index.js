@@ -1,9 +1,11 @@
+// dependencies
 var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
 var app = express();
 var parser = require('body-parser');
-var mongoose    = require('mongoose');
+var mongoose  = require('mongoose');
+var config = require('./config.js');
 
 // connect to database
 require('./models/database');
@@ -19,6 +21,6 @@ app.use('/api', routes);
 // static files
 app.use('/', express.static('client/'));
 
-app.listen(process.env.PORT || 80 || 8000, function () {
-  console.log('Listening on port 8000');
+app.listen(config.port, function () {
+  console.log(`Listening on port ${config.port}`);
 });
