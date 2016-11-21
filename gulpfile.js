@@ -53,6 +53,11 @@ gulp.task('scripts', function() {
 		'client/src/js/components/dashboard/dashboard.module.js',
 		'client/src/js/components/dashboard/dashboard.controller.js',
 
+		// settings
+		'client/src/js/components/settings/settings.module.js',
+		'client/src/js/components/settings/settings.controller.js',
+		'client/src/js/components/settings/settings.model.js',
+
 		// teams
 		'client/src/js/components/teams/teams.module.js',
 		'client/src/js/components/teams/teams.controller.js',
@@ -69,18 +74,26 @@ gulp.task('scripts', function() {
 });
 
 gulp.task('refresh', function() {
-	return gulp.src('index.html')
+	return gulp.src('client/index.html')
 	.pipe(livereload({start: true}))
 });
 
 // Watch for changes
 gulp.task('watch', function() {
 	// Watch .js files
-	gulp.watch('client/src/js/**/*.js', ['scripts', 'refresh']);
+	gulp.watch('client/src/js/**/*.js', function() {
+		runSequence('scripts', 'refresh')
+	});
+
 	// Watch .scss files
-	gulp.watch('client/src/scss/*.scss', ['sass', 'refresh']);
+	gulp.watch('client/src/scss/*.scss', function() {
+		runSequence('sass', 'refresh')
+	});
+
 	// Watch HTML files
-	gulp.watch('**/*.html', ['refresh']);
+	gulp.watch('**/*.html', function() {
+		runSequence('refresh')
+	});
 });
 
 

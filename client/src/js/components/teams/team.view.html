@@ -1,17 +1,22 @@
 <div ng-controller="teamController">
-	<a ui-sref="teams">Go Back</a>
-	<a target="_blank" href="/#/team/view/{{team._id}}">Play Roulette!</a>
+	<div class="form-control">
+		<input class="editable no-border text-extra-large" type="text" ng-model="team.settings.name" ng-blur="updateSettings(team.settings)"></h2>
+		<label>Team Name:</label>
+	</div>
 
-	Team Name:
-	<input class="editable" type="text" ng-model="team.settings.name" ng-blur="updateSettings(team.settings)"></h2>
 
 	<div class="member-list-container">
-		Team Members:
 		<button ng-click="addMember()">Add Member</button>
+		<a class="standard-padding-horizontal btn-hollow" target="_blank" href="/#/team/view/{{team._id}}">Play Roulette!</a>
 
-		<article ng-repeat="member in team.members">
-			<input class="editable" type="text" ng-model="member.name" ng-blur="updateMembers()"/>
-			<button ng-click="removeMember($index)">Remove</button>
+
+		<article ng-repeat="member in team.members" class="members">
+			<div class="form-control right-icon">
+				<input class="editable" type="text" ng-model="member.name" ng-blur="updateMembers()" my-enter="addMember()"/>
+				<div class="icon-group">
+					<i ng-click="removeMember($index)" class="fa fa-minus" aria-hidden="true"></i>
+				</div>
+			</div>
 		</article>
 	</div>
 </div>

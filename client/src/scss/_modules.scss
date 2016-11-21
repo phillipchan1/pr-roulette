@@ -1,0 +1,26 @@
+.card {
+	// background: rgba(255, 255, 255, 0.2);
+	padding: $standardSpacing;
+	margin-bottom: $standardSpacing;
+	transition: $transitionNormal;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+
+	.team-name {
+		transition: $transitionNormal;
+	}
+
+	a {
+		display: block;
+	}
+
+	&:hover {
+		cursor: pointer;
+		transition: $transitionNormal;
+		border-bottom: 1px solid $altColor;
+
+		.team-name {
+			color: $altColor;
+			transition: $transitionNormal;
+		}
+	}
+}

@@ -1,8 +1,17 @@
 <div class="teams-container" ng-controller="teamsController">
-	<button ng-click="makeTeam()">Make Team</button>
-	<article class="card" ng-repeat="team in teams" data-id="{{team._id}}">
-		<h2>{{team.settings.name}}</h2>
-		Members: {{team.members.length}}
-		<button ui-sref="team/edit({id: team._id})">View</button>
+	<button ng-click="makeTeam()">
+		<i class="fa fa-plus-circle"  aria-hidden="true"></i>
+		New Team
+	</button>
+
+	<article class="block-container justify-space-between card" ng-repeat="team in teams" data-id="{{team._id}}" ng-click="viewTeam(team._id)">
+		<div>
+			<h4 class="team-name">{{team.settings.name}}</h4>
+			Members: {{team.members.length}}
+		</div>
+		<div>
+			<a class="subdued" ng-click="removeTeam(team._id, $event);">Delete</a>
+			<a class="btn" target="_blank" href="/#/team/view/{{team._id}}">Play Roulette!</a>
+		</div>
 	</article>
 </div>

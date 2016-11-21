@@ -3839,6 +3839,20 @@ prroulette.directive('pane', function() {
     };
 });
 
+prroulette.directive('myEnter', function () {
+    return function (scope, element, attrs) {
+        element.bind("keydown keypress", function (event) {
+            if(event.which === 13) {
+                scope.$apply(function (){
+                    scope.$eval(attrs.myEnter);
+                });
+
+                event.preventDefault();
+            }
+        });
+    };
+});
+
 
 prroulette.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 
@@ -3879,12 +3893,12 @@ prroulette.config(function($stateProvider, $urlRouterProvider, $locationProvider
 			templateUrl: 'src/js/components/publicListPage/publicListPage.view.html'
 		})
 
-		.state('teams', {
+		.state('dashboard.teams', {
 			url: '/teams',
 			templateUrl: 'src/js/components/teams/teams.view.html'
 		})
 
-		.state('team/edit', {
+		.state('dashboard.team', {
 			url: '/team/edit/:id',
 			templateUrl: 'src/js/components/teams/team.view.html'
 		})
@@ -3914,7 +3928,7 @@ prroulette.config(function($stateProvider, $urlRouterProvider, $locationProvider
 				templateUrl: 'src/js/components/request/subscribers/subscribers.view.html'
 			})
 
-		.state('settings', {
+		.state('dashboard.settings', {
 			url: '/settings',
 			templateUrl: 'src/js/components/settings/settings.view.html'
 		})
@@ -4100,10 +4114,6 @@ prroulette.controller('mainController',
 
 	};
 
-	$scope.closeNotification = function() {
-		$('.notification-bar').removeClass('show');
-	};
-
 	// loading icon for all ajax requests
 	$rootScope.$on('loading:progress', function (){
 		$('.app-loading-icon').show();
@@ -4166,7 +4176,7 @@ authentication.controller('loginController', function($http, $stateParams, $stat
 				if ($stateParams.prevPage) {
 					$location.path($stateParams.prevPage);
 				} else {
-					$state.go('dashboard');
+					$state.go('dashboard.teams');
 				}
 			}
 				// show error message
@@ -4186,8 +4196,32 @@ const dashboard = angular.module('dashboard', []);
 dashboard.controller('dashboardController', function($scope, prrouletteModel) {
 	$scope.config = prrouletteModel.config;
 });
+const settings = angular.module('settings', []);
+
+settings.controller('settingsController', function($scope, $http, tokenService) {
+
+	$scope.settingsUpdateStatus = '';
+
+	$scope.updateSettings = function(configObject) {
+		console.log($scope.userConfig.shopifyAPI);
+		$http({
+			method: 'POST',
+			url: '/api/config',
+			data: {
+				token: tokenService.getJWToken(),
+				config: $scope.userConfig
+			}
+		}).success(function(response) {
+			$scope.notify({
+				type: 'warning',
+				message: 'Settings Saved!'
+			});
+			// $scope.settingsUpdateStatus = 'Settings Successfully changed';
+		});
+	};
+});
 const teams = angular.module('teams', []);
-teams.controller('teamsController', function($scope, $http, teamsFactory) {
+teams.controller('teamsController', function($scope, $state, $http, teamsFactory) {
 	$scope.teams = [];
 
 	$scope.getTeams = function() {
@@ -4198,6 +4232,17 @@ teams.controller('teamsController', function($scope, $http, teamsFactory) {
 
 	$scope.makeTeam = function() {
 		teamsFactory.makeTeam().then(function(response) {
+			$scope.getTeams();
+		});
+	};
+
+	$scope.viewTeam = function(teamID) {
+		$state.go('dashboard.team', {id: teamID});
+	};
+
+	$scope.removeTeam = function(teamID, $event) {
+		$event.stopPropagation();
+		teamsFactory.removeTeam(teamID).then(function(response) {
 			$scope.getTeams();
 		});
 	};
@@ -4220,11 +4265,12 @@ teams.controller('teamController', function($scope, $http, teamsFactory, $stateP
 			})
 			.then(function(response) {
 				$scope.team = response.data.data;
+
 			});
 	};
 
 	var memberFactory = function() {
-		this.name = "member";
+		this.name = "";
 	};
 
 	$scope.addMember = function() {
@@ -4232,6 +4278,10 @@ teams.controller('teamController', function($scope, $http, teamsFactory, $stateP
 
 		$scope.team.members.push(newMember);
 		$scope.updateMembers();
+
+		setTimeout(function() {
+			$('.members input').last().focus();
+		}, 200)
 	};
 
 	$scope.updateMembers = function() {
@@ -4276,6 +4326,16 @@ teams.factory('teamsFactory', function($http, tokenService) {
 				url: '/api/team/' + id,
 				headers: {
 					token: tokenService.getJWToken()
+				}
+			});
+		},
+		removeTeam: function(teamID) {
+			return $http({
+				method: 'PUT',
+				url: `/api/team/${teamID}`,
+				headers: {
+					token: tokenService.getJWToken(),
+					teamID: teamID
 				}
 			});
 		},

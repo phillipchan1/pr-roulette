@@ -23,7 +23,7 @@ authentication.controller('loginController', function($http, $stateParams, $stat
 				if ($stateParams.prevPage) {
 					$location.path($stateParams.prevPage);
 				} else {
-					$state.go('dashboard');
+					$state.go('dashboard.teams');
 				}
 			}
 				// show error message

@@ -1,13 +1,77 @@
+<style>
+	.home {
+		padding-top: 10%;
+	}
+	.roulette-svg {
+		position: absolute;
+		opacity: 0.1;
+		top: -150px;
+		left: 0;
+		transform: translateX(-50%);
+		z-index: -1;
+	}
+
+	@-webkit-keyframes rotating /* Safari and Chrome */ {
+		from {
+			-ms-transform: rotate(0deg);
+			-moz-transform: rotate(0deg);
+			-webkit-transform: rotate(0deg);
+			-o-transform: rotate(0deg);
+			transform: rotate(0deg);
+		}
+		to {
+			-ms-transform: rotate(360deg);
+			-moz-transform: rotate(360deg);
+			-webkit-transform: rotate(360deg);
+			-o-transform: rotate(360deg);
+			transform: rotate(360deg);
+		}
+	}
+
+	@keyframes rotating {
+		from {
+			-ms-transform: rotate(0deg);
+			-moz-transform: rotate(0deg);
+			-webkit-transform: rotate(0deg);
+			-o-transform: rotate(0deg);
+			transform: rotate(0deg);
+		}
+		to {
+			-ms-transform: rotate(360deg);
+			-moz-transform: rotate(360deg);
+			-webkit-transform: rotate(360deg);
+			-o-transform: rotate(360deg);
+			transform: rotate(360deg);
+		}
+	}
+
+	.rotating {
+		-webkit-animation: rotating 50s linear infinite;
+		-moz-animation: rotating 50s linear infinite;
+		-ms-animation: rotating 50s linear infinite;
+		-o-animation: rotating 50s linear infinite;
+		animation: rotating 50s linear infinite;
+	}
+</style>
+
 <div ng-controller="homeController">
 
 	<!-- Not logged in -->
-	<div class="text-center" ng-show="!loggedIn">
-		<h1>PR Roulette</h1>
-		<p>promoting flat-level peer review</p>
-		<p>team ownership of quality</p>
+	<div class="home text-center" ng-show="!loggedIn">
+		<h1 class="title">PR Roulette</h1>
+		<h5>Flat-level Peer Review</h5>
+		<h5>Team Ownership Of Quality</h5>
 
-		<a ui-sref="registration">Register</a>
-		<a ui-sref="login">Login</a>
+		<button ui-sref="registration">Register</button>
+		<button ui-sref="login">Login</button>
+
+		<div class="standard-padding">
+			<a ui-sref="team-search">Search for your team</a>
+		</div>
+
+		<div class="roulette-svg rotating">
+			<?xml version="1.0" ?><svg height="1024" id="svg2" version="1.1" viewBox="0 0 32 32.000001" width="1024" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:svg="http://www.w3.org/2000/svg"><defs id="defs4"/><g id="layer1" transform="translate(0,-1020.3622)"><g id="g15724-5-6-42" transform="translate(-772.22935,-21.500553)"><g id="g6433-3" transform="matrix(1.0016501,0,0,1.0001155,829.9056,-543.68355)"><path d="M 15.972656 6 C 10.445767 6 6 10.490864 6 16 C 6 21.511336 10.445786 26 15.972656 26 C 21.498149 26 26.001953 21.514837 26.001953 16 A 0.50043343 0.49966673 0 0 0 25.962891 15.8125 C 25.856249 10.391074 21.43162 6 15.972656 6 z M 15.972656 6.9980469 C 16.320205 6.9980469 16.662661 7.0223997 17 7.0605469 L 17 9.0859375 C 16.666498 9.0367954 16.327826 9.0039062 15.980469 9.0039062 L 15.980469 9.0019531 C 15.646452 9.0019531 15.321249 9.0327655 15 9.078125 L 15 7.0527344 C 15.319717 7.018488 15.643357 6.9980469 15.972656 6.9980469 z M 13.998047 7.2226562 L 13.998047 9.2910156 C 13.532076 9.4291686 13.085428 9.6105416 12.666016 9.8378906 L 11.205078 8.3769531 C 12.051147 7.844606 12.989769 7.448167 13.998047 7.2226562 z M 18 7.2363281 C 19.00062 7.4658482 19.936324 7.8618435 20.779297 8.3925781 L 19.314453 9.8574219 C 18.899234 9.6298502 18.461236 9.442558 18 9.3027344 L 18 7.2363281 z M 10.375 8.9609375 L 11.810547 10.396484 C 11.273769 10.798885 10.797945 11.274929 10.396484 11.8125 L 8.9609375 10.376953 C 9.3776222 9.8536745 9.853001 9.3789376 10.375 8.9609375 z M 21.609375 8.9765625 C 22.132273 9.394341 22.605178 9.8686131 23.023438 10.390625 L 21.578125 11.837891 C 21.178681 11.298773 20.704585 10.820575 20.169922 10.416016 L 21.609375 8.9765625 z M 15.980469 10 C 19.305215 10 22 12.684817 22 16 C 22 19.316983 19.305233 22 15.980469 22 C 12.654618 22 10 19.320583 10 16 C 10 12.681217 12.654637 10 15.980469 10 z M 8.3789062 11.208984 L 9.8398438 12.669922 C 9.6132259 13.089096 9.4312112 13.535129 9.2929688 14 L 7.2285156 14 C 7.4546892 12.994219 7.8490218 12.055296 8.3789062 11.208984 z M 23.611328 11.21875 C 24.143534 12.062384 24.539349 12.998716 24.767578 14 L 22.662109 14 C 22.526514 13.547039 22.346367 13.112861 22.126953 12.703125 L 23.611328 11.21875 z M 12.513672 12.5 L 12.513672 19.5 L 13.515625 19.5 L 13.515625 13.501953 L 15.3125 13.501953 C 15.895327 13.501953 16.16484 13.603548 16.289062 13.726562 C 16.413285 13.849577 16.515625 14.112587 16.515625 14.689453 L 16.515625 17.695312 L 17.513672 17.695312 L 17.513672 14.689453 C 17.513672 14.000474 17.402362 13.419872 16.994141 13.015625 C 16.585918 12.611278 16.005773 12.501953 15.3125 12.501953 L 13.515625 12.501953 L 13.515625 12.5 L 12.513672 12.5 z M 18.484375 12.582031 L 18.484375 17.242188 C 18.484375 17.847357 18.379909 18.114537 18.230469 18.251953 C 18.081029 18.389269 17.745917 18.498047 17.083984 18.498047 L 15.515625 18.498047 L 15.515625 14.5 L 14.513672 14.5 L 14.513672 19.5 L 15.515625 19.5 L 15.515625 19.498047 L 17.083984 19.498047 C 17.846261 19.498047 18.463395 19.395175 18.908203 18.986328 C 19.353011 18.577381 19.486328 17.966471 19.486328 17.242188 L 19.486328 12.582031 L 18.484375 12.582031 z M 7.0585938 15 L 9.0800781 15 C 9.0330813 15.327809 9 15.659441 9 16 C 9 16.340037 9.0332608 16.672706 9.0800781 17 L 7.0585938 17 C 7.0227133 16.67156 7 16.338198 7 16 C 7 15.661301 7.0225739 15.328942 7.0585938 15 z M 22.884766 15 L 24.941406 15 C 24.97791 15.328752 25 15.661556 25 16 C 25 16.338601 24.97791 16.671132 24.941406 17 L 22.919922 17 C 22.967307 16.672493 23 16.340354 23 16 A 0.50043343 0.49966673 0 0 0 22.960938 15.804688 A 0.50043343 0.49966673 0 0 0 22.958984 15.804688 C 22.950887 15.531681 22.923192 15.264525 22.884766 15 z M 7.2285156 18 L 9.2929688 18 C 9.4312693 18.465609 9.6129314 18.912299 9.8398438 19.332031 L 8.3789062 20.791016 C 7.8492155 19.944682 7.45451 19.006029 7.2285156 18 z M 22.703125 18 L 24.767578 18 C 24.539286 19.002024 24.141924 19.937301 23.609375 20.78125 L 22.154297 19.326172 C 22.381564 18.908684 22.564113 18.462927 22.703125 18 z M 21.595703 20.181641 L 23.025391 21.611328 C 22.607031 22.13352 22.132456 22.605598 21.609375 23.023438 L 20.179688 21.59375 C 20.716268 21.192131 21.193332 20.717082 21.595703 20.181641 z M 10.396484 20.1875 C 10.797946 20.72504 11.273768 21.201202 11.810547 21.603516 L 10.375 23.039062 C 9.8525934 22.620843 9.3778576 22.146753 8.9609375 21.623047 L 10.396484 20.1875 z M 19.324219 22.150391 L 20.78125 23.609375 C 19.937982 24.140307 19.001072 24.534158 18 24.763672 L 18 22.699219 C 18.461938 22.56036 18.907418 22.376463 19.324219 22.150391 z M 12.666016 22.160156 C 13.085646 22.387625 13.5318 22.570801 13.998047 22.708984 L 13.998047 24.777344 C 12.98924 24.551817 12.049532 24.155655 11.203125 23.623047 L 12.666016 22.160156 z M 17 22.916016 L 17 24.939453 C 16.66266 24.97758 16.320206 25.001953 15.972656 25.001953 C 15.643356 25.001953 15.319718 24.981493 15 24.947266 L 15 22.921875 C 15.321248 22.967215 15.646453 22.998047 15.980469 22.998047 C 16.327306 22.998047 16.666398 22.964812 17 22.916016 z " id="path5723-78-3-7" style="color:#FFF;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#FFF;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:start;white-space:normal;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#FFF;solid-opacity:1;fill:#FFF;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.99911821px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate" transform="matrix(0.99835262,0,0,0.99988451,-57.581235,1585.3632)"/></g></g></g></svg>
+		</div>
 
 		<div ui-view></div>
 	</div>

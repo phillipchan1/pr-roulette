@@ -1,4 +1,4 @@
-teams.controller('teamsController', function($scope, $http, teamsFactory) {
+teams.controller('teamsController', function($scope, $state, $http, teamsFactory) {
 	$scope.teams = [];
 
 	$scope.getTeams = function() {
@@ -9,6 +9,17 @@ teams.controller('teamsController', function($scope, $http, teamsFactory) {
 
 	$scope.makeTeam = function() {
 		teamsFactory.makeTeam().then(function(response) {
+			$scope.getTeams();
+		});
+	};
+
+	$scope.viewTeam = function(teamID) {
+		$state.go('dashboard.team', {id: teamID});
+	};
+
+	$scope.removeTeam = function(teamID, $event) {
+		$event.stopPropagation();
+		teamsFactory.removeTeam(teamID).then(function(response) {
 			$scope.getTeams();
 		});
 	};
@@ -31,11 +42,12 @@ teams.controller('teamController', function($scope, $http, teamsFactory, $stateP
 			})
 			.then(function(response) {
 				$scope.team = response.data.data;
+
 			});
 	};
 
 	var memberFactory = function() {
-		this.name = "member";
+		this.name = "";
 	};
 
 	$scope.addMember = function() {
@@ -43,6 +55,10 @@ teams.controller('teamController', function($scope, $http, teamsFactory, $stateP
 
 		$scope.team.members.push(newMember);
 		$scope.updateMembers();
+
+		setTimeout(function() {
+			$('.members input').last().focus();
+		}, 200)
 	};
 
 	$scope.updateMembers = function() {

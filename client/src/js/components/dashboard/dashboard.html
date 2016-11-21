@@ -1,15 +1,19 @@
 <div ng-controller="dashboardController">
-	<div class="panel">
-		<aside class="panel-header">
-			<i class="fa fa-home" aria-hidden="true"></i>
-			Dashboard
-			and you are logged in
-		</aside>
-		<div class="panel-content">
-			<a ui-sref="teams">Teams</a>
-			<a ui-sref="settings">Settings</a>
-			<a ng-click="logout()">Log Out</a>
+	<div class="block-container justify-space-between dashboard-menu">
+		<div>
+			<a ui-sref=".teams">Teams</a>
+			<a ui-sref=".settings">Settings</a>
+
 		</div>
+		<div>
+			Dashboard
+		</div>
+		<div>
+			<a ng-click="logout()">Log Out <i class="fa fa-sign-out" aria-hidden="true"></i></a>
+		</div>
+
 	</div>
+
+	<div ui-view class="standard-padding"></div>
 </div>
 

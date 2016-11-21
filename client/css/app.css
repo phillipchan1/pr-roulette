@@ -825,6 +825,7 @@ there.
 /* Larger than Desktop HD */
 /* ---------- Typography ---------- */
 /* ---------- Spacing ---------- */
+/* ---------- Colors ---------- */
 /* ---------- Animation ---------- */
 .align-baseline {
   align-items: baseline; }
@@ -965,6 +966,12 @@ there.
 .text-right {
   text-align: right; }
 
+.text-large {
+  font-size: 3rem !important; }
+
+.text-extra-large {
+  font-size: 4rem !important; }
+
 .z-1 {
   z-index: 1; }
 
@@ -983,6 +990,165 @@ there.
 .form-control {
   font-size: inherit; }
 
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+textarea {
+  border: 0;
+  background: transparent;
+  width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 0;
+  transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+  position: relative;
+  font-size: 2rem;
+  font-weight: 400;
+  padding: 1.5em 0; }
+  input[type="email"]:focus,
+  input[type="number"]:focus,
+  input[type="search"]:focus,
+  input[type="text"]:focus,
+  input[type="tel"]:focus,
+  input[type="url"]:focus,
+  input[type="password"]:focus,
+  textarea:focus {
+    outline: 0;
+    border: 0;
+    border-bottom: 1px solid #b9b474;
+    transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1); }
+  input[type="email"].no-border,
+  input[type="number"].no-border,
+  input[type="search"].no-border,
+  input[type="text"].no-border,
+  input[type="tel"].no-border,
+  input[type="url"].no-border,
+  input[type="password"].no-border,
+  textarea.no-border {
+    border-bottom: 1px solid transparent; }
+    input[type="email"].no-border:hover,
+    input[type="number"].no-border:hover,
+    input[type="search"].no-border:hover,
+    input[type="text"].no-border:hover,
+    input[type="tel"].no-border:hover,
+    input[type="url"].no-border:hover,
+    input[type="password"].no-border:hover,
+    textarea.no-border:hover {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3); }
+
+.form-control {
+  position: relative; }
+  .form-control .icon-group {
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%); }
+  .form-control.left-icon .icon-group {
+    left: 1em; }
+  .form-control.left-icon input {
+    padding-left: 3em; }
+  .form-control label {
+    position: absolute;
+    top: 5%;
+    left: 0;
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+    font-size: 0.7em;
+    letter-spacing: 1px; }
+  .form-control:focus label {
+    color: #d9d666; }
+  .form-control.right-icon input {
+    padding-left: inherit; }
+  .form-control.right-icon .icon-group {
+    left: initial;
+    right: 1em; }
+    .form-control.right-icon .icon-group i:hover {
+      cursor: pointer;
+      color: rgba(255, 255, 255, 0.5); }
+
+body.loggedIn {
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(../src/images/10941.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
+
+body.loggedOut {
+  overflow: hidden; }
+
+.app-loading-icon {
+  position: fixed;
+  bottom: 1em;
+  right: 1em; }
+
+.authentication {
+  padding-top: 10%;
+  width: 60%;
+  margin: auto; }
+
+.dashboard-menu {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3); }
+
+body {
+  background: #000;
+  color: #EFEFEF;
+  font-family: "Monda", Helvetica, Arial, sans-serif; }
+
+h1.title {
+  font-family: "Fugaz One";
+  font-size: 10rem;
+  letter-spacing: -7px; }
+
+a {
+  color: #bab573;
+  text-decoration: none; }
+  a.subdued {
+    color: #ccc; }
+    a.subdued:hover {
+      color: #ddd; }
+  a:hover {
+    cursor: pointer;
+    color: #C4DD4B; }
+
+button {
+  background: #d9d666;
+  border-radius: 3em;
+  padding: 0.5em 1em;
+  border: 1px solid transparent;
+  line-height: initial;
+  color: #333;
+  height: initial;
+  transition: all 0.25s cubic-bezier(0.215, 0.61, 0.355, 1); }
+  button:hover {
+    background: #edea70;
+    transition: all 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
+    border: 1px solid transparent; }
+  button.btn-wide {
+    width: 100%; }
+  button.btn-hollow {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.8); }
+    button.btn-hollow:hover {
+      background: rgba(255, 255, 255, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      transition: all 0.25s cubic-bezier(0.215, 0.61, 0.355, 1); }
+
 .card {
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 1em; }
+  padding: 1em;
+  margin-bottom: 1em;
+  transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.6); }
+  .card .team-name {
+    transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1); }
+  .card a {
+    display: block; }
+  .card:hover {
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+    border-bottom: 1px solid #bab573; }
+    .card:hover .team-name {
+      color: #bab573;
+      transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1); }

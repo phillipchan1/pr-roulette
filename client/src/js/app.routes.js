@@ -37,12 +37,12 @@ prroulette.config(function($stateProvider, $urlRouterProvider, $locationProvider
 			templateUrl: 'src/js/components/publicListPage/publicListPage.view.html'
 		})
 
-		.state('teams', {
+		.state('dashboard.teams', {
 			url: '/teams',
 			templateUrl: 'src/js/components/teams/teams.view.html'
 		})
 
-		.state('team/edit', {
+		.state('dashboard.team', {
 			url: '/team/edit/:id',
 			templateUrl: 'src/js/components/teams/team.view.html'
 		})
@@ -72,7 +72,7 @@ prroulette.config(function($stateProvider, $urlRouterProvider, $locationProvider
 				templateUrl: 'src/js/components/request/subscribers/subscribers.view.html'
 			})
 
-		.state('settings', {
+		.state('dashboard.settings', {
 			url: '/settings',
 			templateUrl: 'src/js/components/settings/settings.view.html'
 		})

@@ -23,15 +23,15 @@ router.post('/teams', function(req, res, next) {
 });
 
 // delete team list
-router.put('/teams', function(req, res, next) {
-	Team.findById(req.body.formID, function(err, teamList) {
+router.put('/team/:id', function(req, res, next) {
+	Team.findById(req.params.id, function(err, team) {
 		if (err) {
 			res.json(err);
 		} else {
-			teamList.remove();
+			team.remove();
 			res.json({
 				success: true,
-				data: teamList
+				data: team
 			});
 		}
 
@@ -55,6 +55,28 @@ router.get('/teams', function(req, res, next) {
 			});
 		}
 	});
+});
+
+// search teams
+router.get('/teams/search/:term', function(req, res, next) {
+	Team.textSearch(req.params.term, function(err, output) {
+		res.json(out);
+	});
+	// Team.find({
+	// 	owner: req.email
+	// }, function(err, request) {
+	// 	if (err) {
+	// 		res.json({
+	// 			success: false,
+	// 			message: err
+	// 		});
+	// 	} else {
+	// 		res.json({
+	// 			success: true,
+	// 			data: request
+	// 		});
+	// 	}
+	// });
 });
 
 // get specific request list by list id

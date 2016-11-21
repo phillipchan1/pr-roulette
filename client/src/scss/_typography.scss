@@ -1,0 +1,62 @@
+body {
+	background: #000;
+	color: #EFEFEF;
+	font-family: "Monda", Helvetica, Arial, sans-serif;
+}
+
+h1.title {
+	font-family: "Fugaz One";
+	font-size: 10rem;
+	letter-spacing: -7px;
+}
+
+a {
+	color: $altColor;
+	text-decoration: none;
+
+	&.subdued {
+		color: #ccc;
+
+		&:hover {
+			color: #ddd
+		}
+	}
+
+	&:hover {
+		cursor: pointer;
+		color: #C4DD4B;
+	}
+}
+
+button {
+	background: #d9d666;
+	border-radius: 3em;
+	padding: 0.5em 1em;
+	border: 1px solid transparent;
+	line-height: initial;
+	color: #333;
+	height: initial;
+	transition: $transitionFast;
+
+	&:hover {
+		background: #edea70;
+		transition: $transitionFast;
+		border: 1px solid transparent;
+	}
+
+	&.btn-wide {
+		width: 100%;
+	}
+
+	&.btn-hollow {
+		background: transparent;
+		border: 1px solid rgba(255, 255, 255, 0.8);
+		color: rgba(255, 255, 255, 0.8);
+
+		&:hover {
+			background: rgba(255, 255, 255, 0.4);
+			border: 1px solid rgba(255, 255, 255, 0.4);
+			transition: $transitionFast;
+		}
+	}
+}

@@ -27,6 +27,16 @@ teams.factory('teamsFactory', function($http, tokenService) {
 				}
 			});
 		},
+		removeTeam: function(teamID) {
+			return $http({
+				method: 'PUT',
+				url: `/api/team/${teamID}`,
+				headers: {
+					token: tokenService.getJWToken(),
+					teamID: teamID
+				}
+			});
+		},
 		updateMembers: function(options) {
 			return $http({
 				method: 'POST',

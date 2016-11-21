@@ -80,10 +80,6 @@ prroulette.controller('mainController',
 
 	};
 
-	$scope.closeNotification = function() {
-		$('.notification-bar').removeClass('show');
-	};
-
 	// loading icon for all ajax requests
 	$rootScope.$on('loading:progress', function (){
 		$('.app-loading-icon').show();

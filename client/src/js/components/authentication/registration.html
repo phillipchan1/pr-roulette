@@ -1,21 +1,27 @@
-<div class="align-center authentication block-container justify-center w-100" ng-controller="registrationController">
-	<div class="inner-container">
-		<p>Registering for an account is easy</p>
+<div class="align-center authentication" ng-controller="registrationController">
+	<h4>Registering for an account is easy</h4>
 
-		<p>{{errorMessage}} &nbsp;</p>
+	<p ng-show="errorMessage">{{errorMessage}} &nbsp;</p>
 
-		<form novalidate class="simple-form">
-			<label class="w-100">
-		    	<i class="fa fa-envelope-o" aria-hidden="true"></i>
-		    	<input type="email" placeholder="Email" ng-keyup="resetError()" ng-model="user.email" />
-			</label>
-		    <label class="w-100">
-		    	<i class="fa fa-lock" aria-hidden="true"></i>
-		    	 <input type="password" placeholder="Choose a Password" ng-model="user.password" />
-			</label>
-		    <button class="authenticate-button w-100" ng-click="register(user)">Register</button>
-		  </form>
+	<form novalidate class="simple-form">
+		<label class="form-control left-icon">
+			<div class="icon-group">
+				<i class="fa fa-envelope-o" aria-hidden="true"></i>
+			</div>
+			<input type="email" placeholder="Email" ng-keyup="resetError()" ng-model="user.email" />
+		</label>
+		<label class="form-control left-icon">
+			<div class="icon-group">
+				<i class="fa fa-lock" aria-hidden="true"></i>
+			</div>
+			<input type="password" placeholder="Choose a Password" ng-model="user.password" />
+		</label>
+		<button class="btn-wide w-100" ng-click="register(user)">Register</button>
 
-		<a ui-sref="login">Log In</a>
-	</div>
+		<div class="text-center">
+			Already have an account? <a ui-sref="login">Log In</a>
+		</div>
+	</form>
+
+
 </div>

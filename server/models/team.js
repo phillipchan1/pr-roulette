@@ -1,6 +1,7 @@
 'use strict';
 
 var mongoose = require('mongoose');
+var textSearch = require('mongoose-text-search');
 
 var teamSchema = new mongoose.Schema({
     owner: {
@@ -16,6 +17,10 @@ var teamSchema = new mongoose.Schema({
     }
 });
 
+teamSchema.plugin(textSearch);
+teamSchema.index({
+    name: 'text'
+});
 
 var team = mongoose.model('teams', teamSchema);
 
