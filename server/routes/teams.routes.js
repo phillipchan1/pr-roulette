@@ -13,6 +13,11 @@ router.post('/teams', function(req, res, next) {
 		if (err) {
 			res.json(err);
 		} else {
+
+			Team.textSearch('team', function(err, output) {
+				console.log(output);
+			});
+
 			res.json({
 				success: true,
 				data: request,
@@ -55,28 +60,6 @@ router.get('/teams', function(req, res, next) {
 			});
 		}
 	});
-});
-
-// search teams
-router.get('/teams/search/:term', function(req, res, next) {
-	Team.textSearch(req.params.term, function(err, output) {
-		res.json(out);
-	});
-	// Team.find({
-	// 	owner: req.email
-	// }, function(err, request) {
-	// 	if (err) {
-	// 		res.json({
-	// 			success: false,
-	// 			message: err
-	// 		});
-	// 	} else {
-	// 		res.json({
-	// 			success: true,
-	// 			data: request
-	// 		});
-	// 	}
-	// });
 });
 
 // get specific request list by list id

@@ -4371,21 +4371,14 @@ roulette.controller('rouletteController', function($scope, rouletteFactory, $sta
 			$scope.textToImages();
 		});
 
-	$scope.data = "phil";
-
-	angular.element(document).ready(function () {
-
-    });
-
 	$scope.textToImages = function() {
 
 		angular.element(document).ready(function () {
 			var numOfNames = $('.member').length;
 
-			console.log(numOfNames);
-
 			$('.member').each(function(index, member) {
-		 		console.log(member.innerHTML);
+		 		$('.app-loading-icon').show();
+
 		 		$(`<img class="name-${index}" />`).appendTo('.roulette');
 		 		html2canvas(member, {
 		 			onrendered: function(canvas) {
@@ -4397,10 +4390,13 @@ roulette.controller('rouletteController', function($scope, rouletteFactory, $sta
 
 			 				roulette.roulette(
 								{
-									speed : 1,
-									duration : 1,
+									speed : 100,
+									duration : 2,
 								}
 							);
+
+							$('.roulette-inner').show();
+							$('.app-loading-icon').hide();
 
 							$('.start').click(function(){
 								roulette.roulette('start');

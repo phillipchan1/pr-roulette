@@ -1,18 +1,44 @@
-<div ng-controller="rouletteController">
+<style>
+	.roulette-page {
+		padding: 1em;
+		text-align: center;
+	}
+
+	.member-list {
+		height: 0;
+	}
+
+	.roulette-inner {
+		display: none;
+	}
+
+	span.member {
+		font-size: 4em;
+		padding: 2em;
+	}
+
+	.roulette img {
+		margin: auto;
+	}
+
+	button.start {
+		z-index: 10;
+	}
+</style>
+
+<div ng-controller="rouletteController" class="roulette-page">
 
 	<h2>{{team.settings.name}}</h2>
-	<h3>PR Roulette</h3>
 
-	<p>Find out Who Is Going to Review</p>
+	<p>Find out Who is Going to Review</p>
 
-	Members
 	<div class="member-list" style="opacity:0">
-		<span class="member" ng-repeat="member in team.members" style="font-size:3em">
+		<span class="member" ng-repeat="member in team.members">
 			{{member.name}}
 		</span>
 	</div>
 
 	<div class="roulette" style="display:none;"></div>
 
-	<button class="start">Spin Wheel</button>
+	<button class="start">Spin the Wheel!</button>
 </div>

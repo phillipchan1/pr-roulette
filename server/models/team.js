@@ -19,7 +19,9 @@ var teamSchema = new mongoose.Schema({
 
 teamSchema.plugin(textSearch);
 teamSchema.index({
-    name: 'text'
+    settings: {
+        name: 'text'
+    }
 });
 
 var team = mongoose.model('teams', teamSchema);
