@@ -163,7 +163,7 @@ router.get('/config', function(req, res, next) {
         } else {
             res.json({
                 success: true,
-                data: user.config
+                data: user
             });
         }
     });
