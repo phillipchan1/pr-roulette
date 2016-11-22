@@ -4188,8 +4188,13 @@ authentication.controller('loginController', function($http, $stateParams, $stat
 });
 const home = angular.module('home', []);
 
-home.controller('homeController', function($scope, prrouletteModel) {
+home.controller('homeController', function($scope, $state, prrouletteModel) {
 	$scope.config = prrouletteModel.config;
+
+	if (prrouletteModel.loggedIn) {
+		$state.go('dashboard.teams');
+		console.log('were logged in')
+	}
 });
 const dashboard = angular.module('dashboard', []);
 
