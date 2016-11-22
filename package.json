@@ -11,6 +11,7 @@
     "angular": "^1.5.8",
     "angular-animate": "^1.5.8",
     "angular-ui-router": "^0.3.2",
+    "angular-ui-router-anim-in-out": "^1.0.2",
     "bcryptjs": "^2.3.0",
     "body-parser": "^1.15.2",
     "express": "^4.14.0",

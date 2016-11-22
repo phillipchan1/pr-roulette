@@ -3,6 +3,7 @@ const prroulette = angular.module(
         // vendors
         'ngAnimate',
         'ui.router',
+        'anim-in-out',
 
         // modules
         'authentication',

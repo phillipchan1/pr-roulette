@@ -23,6 +23,7 @@ gulp.task('scripts', function() {
 		// plugins
 		'node_modules/angular-ui-router/release/angular-ui-router.min.js',
 		'node_modules/angular-animate/angular-animate.min.js',
+		'node_modules/angular-ui-router-anim-in-out/anim-in-out.js',
 		'node_modules/jquery/dist/jquery.min.js',
 		'client/src/js/plugins/roulette.min.js',
 		'client/src/js/plugins/html2canvas.js',

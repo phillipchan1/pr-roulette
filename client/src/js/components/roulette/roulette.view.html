@@ -14,7 +14,7 @@
 
 	span.member {
 		font-size: 4em;
-		padding: 2em;
+		padding: 1em;
 	}
 
 	.roulette img {
@@ -23,14 +23,17 @@
 
 	button.start {
 		z-index: 10;
+		width: 50%;
+		margin: auto;
 	}
 </style>
 
-<div ng-controller="rouletteController" class="roulette-page">
+<div ng-controller="rouletteController" class="block-container flex-direction-column justify-space-between roulette-page">
 
-	<h2>{{team.settings.name}}</h2>
-
-	<p>Find out Who is Going to Review</p>
+	<div>
+		<h2>{{team.settings.name}}</h2>
+		<p>Find out Who is Going to Review</p>
+	</div>
 
 	<div class="member-list" style="opacity:0">
 		<span class="member" ng-repeat="member in team.members">
