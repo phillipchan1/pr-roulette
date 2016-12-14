@@ -58,7 +58,7 @@ teams.controller('teamController', function($scope, $http, teamsFactory, $stateP
 
 		setTimeout(function() {
 			$('.members input').last().focus();
-		}, 200)
+		}, 200);
 	};
 
 	$scope.updateMembers = function() {
