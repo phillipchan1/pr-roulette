@@ -64,6 +64,11 @@ gulp.task('scripts', function() {
 		'client/src/js/components/teams/teams.controller.js',
 		'client/src/js/components/teams/teams.model.js',
 
+		// search
+		'client/src/js/components/search/search.module.js',
+		'client/src/js/components/search/search.controller.js',
+		'client/src/js/components/search/search.model.js',
+
 		// roulette
 		'client/src/js/components/roulette/roulette.module.js',
 		'client/src/js/components/roulette/roulette.controller.js',

@@ -10,8 +10,8 @@ const prroulette = angular.module(
         'home',
         'dashboard',
         'teams',
-        'roulette'
-
+        'roulette',
+        'search'
     ]
 );
 

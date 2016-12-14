@@ -1,0 +1,27 @@
+<style>
+	form {
+		width: 100%;
+	}
+</style>
+
+<div ng-controller="searchController">
+	<div class="block-container justify-space-between">
+		<form>
+			<input type="text" placeholder="Search for team..." ng-model="searchTerm" />
+			<button ng-click="searchTeam(searchTerm)">Search</button>
+		</form>
+	</div>
+
+	<div class="search-results-container">
+		<article class="block-container justify-space-between card" ng-repeat="team in searchResults">
+			<div>
+				<h4 class="team-name">{{team.settings.name}}</h4>
+				Members: {{team.members.length}}
+			</div>
+			<a class="btn" target="_blank" href="/team/view/{{team._id}}">Play Roulette!</a>
+		</article>
+	</div>
+</div>
+
+<div ng-include="'src/js/shared/spinningRoulette.html'"></div>
+

@@ -3865,8 +3865,8 @@ const prroulette = angular.module(
         'home',
         'dashboard',
         'teams',
-        'roulette'
-
+        'roulette',
+        'search'
     ]
 );
 
@@ -3960,6 +3960,11 @@ prroulette.config(function($stateProvider, $urlRouterProvider, $locationProvider
 			templateUrl: 'src/js/components/home/home.view.html'
 		})
 
+		.state('search', {
+			url: '/search',
+			templateUrl: '/src/js/components/search/search.view.html'
+		})
+
 		.state('dashboard', {
 			url: '/dashboard',
 			templateUrl: 'src/js/components/dashboard/dashboard.html'
@@ -3993,30 +3998,12 @@ prroulette.config(function($stateProvider, $urlRouterProvider, $locationProvider
 			templateUrl: 'src/js/components/teams/team.view.html'
 		})
 
+
+
 		.state('team/view', {
 			url: '/team/view/:id',
 			templateUrl: 'src/js/components/roulette/roulette.view.html'
 		})
-
-			.state('request.main', {
-				url: '/main',
-				templateUrl: 'src/js/components/request/main/main.view.html'
-			})
-
-			.state('request.settings', {
-				url: '/settings',
-				templateUrl: 'src/js/components/request/settings/settings.view.html'
-			})
-
-			.state('request.criteria', {
-				url: '/criteria',
-				templateUrl: 'src/js/components/request/criteria/criteria.view.html'
-			})
-
-			.state('request.subscribers', {
-				url: '/subscribers',
-				templateUrl: 'src/js/components/request/subscribers/subscribers.view.html'
-			})
 
 		.state('dashboard.settings', {
 			url: '/settings',
@@ -4454,6 +4441,35 @@ teams.factory('teamsFactory', function($http, tokenService) {
 				}
 			});
 		},
+	};
+});
+const search = angular.module('search', []);
+
+search.controller('searchController', function($scope, searchFactory) {
+	$scope.searchResults = [];
+
+	$scope.searchTeam = function(searchTerm) {
+
+		searchFactory.searchTeam(searchTerm)
+			.then(function(response) {
+				console.log(response.data);
+				$scope.searchResults = [];
+				$scope.searchResults = response.data;
+			}
+		);
+	};
+});
+search.factory('searchFactory', function($http, tokenService) {
+	return {
+		searchTeam: function(teamName) {
+			return $http({
+				method: 'GET',
+				url: '/api/public/teams/search',
+				headers: {
+					teamName: teamName
+				}
+			});
+		}
 	};
 });
 const roulette = angular.module('roulette', []);

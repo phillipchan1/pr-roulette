@@ -8,6 +8,6 @@ mongoose.connect(mLabDB, function(err) {
 	if (err) {
 		console.log("Failed to connect to mongodb");
 	} else {
-		console.log("Successfully connected to mongodb at mLabs");
+		console.log("Successfully connected to mongodb");
 	}
 });

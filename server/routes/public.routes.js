@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Team = require('../models/team');
+var stringUtils = require('../utils/stringUtils');
 
 // get specific request list by list id
 router.get('/team/view/:id', function(req, res, next) {
@@ -17,6 +18,26 @@ router.get('/team/view/:id', function(req, res, next) {
 			});
 		}
 	});
+});
+
+// get list of teams based on fuzzy search term
+router.get('/teams/search/', function(req, res, next) {
+
+	if (req.headers.teamname) {
+		let regex = new RegExp(stringUtils.escapeRegex(req.headers.teamname), 'gi');
+
+		Team
+		.find({'settings.name': regex})
+		.limit(20)
+		.exec(function(err, teams) {
+			if (err) {
+				console.log(err);
+			} else {
+				res.json(teams);
+			}
+		});
+	}
+
 });
 
 module.exports = router;
