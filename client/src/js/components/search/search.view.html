@@ -13,7 +13,7 @@
 	</div>
 
 	<div class="search-results-container">
-		<article class="block-container justify-space-between card" ng-repeat="team in searchResults">
+		<article class="block-container justify-space-between card" ng-repeat="team in searchResults track by $index">
 			<div>
 				<h4 class="team-name">{{team.settings.name}}</h4>
 				Members: {{team.members.length}}

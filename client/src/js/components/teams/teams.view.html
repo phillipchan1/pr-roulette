@@ -4,7 +4,7 @@
 		New Team
 	</button>
 
-	<article class="block-container justify-space-between card" ng-repeat="team in teams" data-id="{{team._id}}" ng-click="viewTeam(team._id)">
+	<article class="block-container justify-space-between card" ng-repeat="team in teams track by $index" data-id="{{team._id}}" ng-click="viewTeam(team._id)">
 		<div>
 			<h4 class="team-name">{{team.settings.name}}</h4>
 			Members: {{team.members.length}}

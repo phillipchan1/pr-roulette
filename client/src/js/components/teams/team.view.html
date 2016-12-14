@@ -4,13 +4,11 @@
 		<label>Team Name:</label>
 	</div>
 
-
 	<div class="member-list-container">
 		<button ng-click="addMember()">Add Member</button>
 		<a class="standard-padding-horizontal btn-hollow" target="_blank" href="/team/view/{{team._id}}">Play Roulette!</a>
 
-
-		<article ng-repeat="member in team.members" class="members">
+		<article ng-repeat="member in team.members track by $index" class="members">
 			<div class="form-control right-icon">
 				<input class="editable" type="text" ng-model="member.name" ng-blur="updateMembers()" my-enter="addMember()"/>
 				<div class="icon-group">
