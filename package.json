@@ -4,7 +4,8 @@
   "description": "Team-based peer-review",
   "main": "server/index.js",
   "scripts": {
-    "start": "concurrently  \"sudo nodemon\" gulp mongod \"open http://localhost:80\""
+    "start": "node server/index.js",
+    "dev": "concurrently  \"sudo nodemon\" gulp mongod \"open http://localhost:80\""
   },
   "dependencies": {
     "angular": "^1.5.8",
