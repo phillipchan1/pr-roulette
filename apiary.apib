@@ -13,36 +13,36 @@ Pass in team ID to get the team and information
 
 + Response 200 (application/json)
 
-        [
-            {
-              "success": true,
-              "data": {
-                "_id": "583378ab846b2c0010eb410d",
-                "owner": "phillip.chan@liferay.com",
-                "settings": {
-                  "name": "LR Web Team"
-                },
-                "__v": 23,
-                "members": [
-                  {
-                    "name": "Luke"
-                  },
-                  {
-                    "name": "Allen"
-                  },
-                  {
-                    "name": "Weston"
-                  },
-                  {
-                    "name": "Phil"
-                  },
-                  {
-                    "name": "Rebecca"
-                  }
-                ]
-              }
-            }
-        ]
+		[
+			{
+				"success": true,
+				"data": {
+				"_id": "583378ab846b2c0010eb410d",
+				"owner": "phillip.chan@liferay.com",
+				"settings": {
+					"name": "LR Web Team"
+				},
+				"__v": 23,
+				"members": [
+					{
+						"name": "Luke"
+					},
+					{
+						"name": "Allen"
+					},
+					{
+						"name": "Weston"
+					},
+					{
+						"name": "Phil"
+					},
+					{
+						"name": "Rebecca"
+					}
+				]
+				}
+			}
+		]
 
 ## Team Search [api/public/teams/search]
 
@@ -54,24 +54,24 @@ You may search for teams with this action. It takes a search term in the header 
 
 + Request (application/json)
 
-        {
-            "headers": {
-                teamname: "Your search query"
-            }
-        }
+		{
+			"headers": {
+				teamname: "Your search query"
+			}
+		}
 
 + Response 201 (application/json)
 
-    + Body
+	+ Body
 
-        [
-          {
-            "_id": "583378ed846b2c0010eb410f",
-            "owner": "weston.hancock@liferay.com",
-            "settings": {
-              "name": "New Team"
-            },
-            "__v": 0,
-            "members": []
-          }
-        ]
+		[
+			{
+				"_id": "583378ed846b2c0010eb410f",
+				"owner": "weston.hancock@liferay.com",
+				"settings": {
+				"name": "New Team"
+			},
+				"__v": 0,
+				"members": []
+			}
+		]
