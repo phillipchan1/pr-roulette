@@ -3,78 +3,75 @@ HOST: http://polls.apiblueprint.org/
 
 # PR Roulette
 
-Polls is a simple API allowing consumers to view polls and vote in them.
+PR Roulette is a simple API that allows teams a randomized peer review process.
 
-## Teams Collection [/questions]
+## Team Collection [api/public/team/view/:id]
 
-### List All Questions [GET]
+Pass in team ID to get the team and information
+
+### List Team [GET]
 
 + Response 200 (application/json)
 
         [
             {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 2048
-                    }, {
-                        "choice": "Python",
-                        "votes": 1024
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 512
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 256
-                    }
+              "success": true,
+              "data": {
+                "_id": "583378ab846b2c0010eb410d",
+                "owner": "phillip.chan@liferay.com",
+                "settings": {
+                  "name": "LR Web Team"
+                },
+                "__v": 23,
+                "members": [
+                  {
+                    "name": "Luke"
+                  },
+                  {
+                    "name": "Allen"
+                  },
+                  {
+                    "name": "Weston"
+                  },
+                  {
+                    "name": "Phil"
+                  },
+                  {
+                    "name": "Rebecca"
+                  }
                 ]
+              }
             }
         ]
 
-### Create a New Question [POST]
+## Team Search [api/public/teams/search]
 
-You may create your own question using this action. It takes a JSON
-object containing a question and a collection of answers in the
-form of choices.
+Pass in team ID to get the team and information
+
+### Search for Team [GET]
+
+You may search for teams with this action. It takes a search term in the header and returns a list of teams that match that search query.
 
 + Request (application/json)
 
         {
-            "question": "Favourite programming language?",
-            "choices": [
-                "Swift",
-                "Python",
-                "Objective-C",
-                "Ruby"
-            ]
+            "headers": {
+                teamname: "Your search query"
+            }
         }
 
 + Response 201 (application/json)
 
-    + Headers
-
-            Location: /questions/2
-
     + Body
 
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 0
-                    }, {
-                        "choice": "Python",
-                        "votes": 0
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 0
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 0
-                    }
-                ]
-            }
+        [
+          {
+            "_id": "583378ed846b2c0010eb410f",
+            "owner": "weston.hancock@liferay.com",
+            "settings": {
+              "name": "New Team"
+            },
+            "__v": 0,
+            "members": []
+          }
+        ]
