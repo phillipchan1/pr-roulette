@@ -5,11 +5,14 @@ HOST: http://polls.apiblueprint.org/
 
 PR Roulette is a simple API that allows teams a randomized peer review process.
 
-## Team Collection [/api/public/team/view/:id]
+## Team Collection [/api/public/team/view/{id}]
 
 Pass in team ID to get the team and information
 
 ### List Team [GET]
+
++ Parameters
+	+ team_id (number) - ID of the team you want
 
 + Response 200 (application/json)
 
@@ -52,12 +55,10 @@ Pass in team ID to get the team and information
 
 You may search for teams with this action. It takes a search term in the header and returns a list of teams that match that search query.
 
-+ Request (application/json)
++ Headers (application/json)
 
 		{
-			"headers": {
-				teamname: "Your search query"
-			}
+			teamname: "Your search query"
 		}
 
 + Response 201 (application/json)
