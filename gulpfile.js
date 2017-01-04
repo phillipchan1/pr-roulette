@@ -19,6 +19,7 @@ gulp.task('scripts', function() {
 	return gulp.src([
 		// angular
 		'node_modules/angular/angular.min.js',
+		'node_modules/angular-mocks/angular-mocks.js',
 
 		// plugins
 		'node_modules/angular-ui-router/release/angular-ui-router.min.js',
