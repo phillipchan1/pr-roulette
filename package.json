@@ -5,7 +5,7 @@
   "main": "server/index.js",
   "scripts": {
     "start": "node server/index.js",
-    "dev": "concurrently  \"sudo nodemon\" gulp mongod \"open http://localhost:80\""
+    "dev": "concurrently  \"sudo nodemon\" gulp mongod \"open http://localhost:80\" \"karma start my.conf.js\""
   },
   "dependencies": {
     "angular": "^1.5.8",
