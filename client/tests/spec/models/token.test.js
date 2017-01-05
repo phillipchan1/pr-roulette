@@ -1,4 +1,4 @@
-describe('tokenService', function() {
+describe('models/token.js', function() {
 
 	var tokenService;
 
