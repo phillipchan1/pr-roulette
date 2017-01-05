@@ -10,7 +10,7 @@ describe('tokenService', function() {
 
 	it('storeJWToken() store a token when provided', function() {
 		tokenService.storeJWToken('myToken');
-		localStorage.getItem('jwtoken').should.equal('myToken');
+		localStorage.getItem('jwtoken').should.equal('mytoken');
 	});
 
 	it('getJWToken() retrieve a token when provided', function() {
