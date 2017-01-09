@@ -1,0 +1,48 @@
+10:58:11.328 INFO - Launching a standalone Selenium Server
+10:58:11.361 INFO - Java: Oracle Corporation 24.79-b02
+10:58:11.361 INFO - OS: Mac OS X 10.12.1 x86_64
+10:58:11.372 INFO - v2.53.0, with Core v2.53.0. Built from revision 35ae25b
+10:58:11.430 INFO - Driver provider org.openqa.selenium.ie.InternetExplorerDriver registration is skipped:
+registration capabilities Capabilities [{platform=WINDOWS, ensureCleanSession=true, browserName=internet explorer, version=}] does not match the current platform MAC
+10:58:11.431 INFO - Driver provider org.openqa.selenium.edge.EdgeDriver registration is skipped:
+registration capabilities Capabilities [{platform=WINDOWS, browserName=MicrosoftEdge, version=}] does not match the current platform MAC
+10:58:11.431 INFO - Driver class not found: com.opera.core.systems.OperaDriver
+10:58:11.431 INFO - Driver provider com.opera.core.systems.OperaDriver is not registered
+10:58:11.433 INFO - Driver class not found: org.openqa.selenium.htmlunit.HtmlUnitDriver
+10:58:11.433 INFO - Driver provider org.openqa.selenium.htmlunit.HtmlUnitDriver is not registered
+10:58:11.485 INFO - RemoteWebDriver instances should connect to: http://127.0.0.1:4444/wd/hub
+10:58:11.486 INFO - Selenium Server is up and running
+10:58:11.747 INFO - Executing: [new session: Capabilities [{platform=ANY, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, name=App Module Test}]])
+10:58:11.757 INFO - Creating a new session for Capabilities [{platform=ANY, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, name=App Module Test}]
+Starting ChromeDriver 2.27.440174 (e97a722caafc2d3a8b807ee115bfb307f7d2cfd9) on port 4076
+Only local connections are allowed.
+10:58:12.813 INFO - Done: [new session: Capabilities [{platform=ANY, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, name=App Module Test}]]
+10:58:12.827 INFO - Executing: [get: http://localhost:80])
+10:58:13.745 INFO - Done: [get: http://localhost:80]
+10:58:13.752 INFO - Executing: [find elements: By.cssSelector: body])
+10:58:13.794 INFO - Done: [find elements: By.cssSelector: body]
+10:58:13.798 INFO - Executing: [is displayed: 0 [[ChromeDriver: chrome on MAC (3120b148c71255cb24b0a87178787431)] -> css selector: body]])
+10:58:13.820 INFO - Done: [is displayed: 0 [[ChromeDriver: chrome on MAC (3120b148c71255cb24b0a87178787431)] -> css selector: body]]
+10:58:13.826 INFO - Executing: [get title])
+10:58:13.831 INFO - Done: [get title]
+10:58:13.836 INFO - Executing: [take screenshot])
+10:58:14.155 INFO - Done: [take screenshot]
+10:58:14.173 INFO - Executing: [delete session: 29454d35-4328-411a-8283-32e09ce2bb9c])
+10:58:14.249 INFO - Done: [delete session: 29454d35-4328-411a-8283-32e09ce2bb9c]
+10:58:14.271 INFO - Executing: [new session: Capabilities [{platform=ANY, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, name=Login Test}]])
+10:58:14.272 INFO - Creating a new session for Capabilities [{platform=ANY, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, name=Login Test}]
+Starting ChromeDriver 2.27.440174 (e97a722caafc2d3a8b807ee115bfb307f7d2cfd9) on port 22844
+Only local connections are allowed.
+10:58:14.941 INFO - Done: [new session: Capabilities [{platform=ANY, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, name=Login Test}]]
+10:58:14.946 INFO - Executing: [get: http://localhost:80])
+10:58:15.815 INFO - Done: [get: http://localhost:80]
+10:58:15.820 INFO - Executing: [find elements: By.cssSelector: body])
+10:58:15.844 INFO - Done: [find elements: By.cssSelector: body]
+10:58:15.848 INFO - Executing: [is displayed: 0 [[ChromeDriver: chrome on MAC (959983f29a9e004e6818a61fb55478b6)] -> css selector: body]])
+10:58:15.869 INFO - Done: [is displayed: 0 [[ChromeDriver: chrome on MAC (959983f29a9e004e6818a61fb55478b6)] -> css selector: body]]
+10:58:15.874 INFO - Executing: [get title])
+10:58:15.880 INFO - Done: [get title]
+10:58:15.884 INFO - Executing: [take screenshot])
+10:58:16.221 INFO - Done: [take screenshot]
+10:58:16.242 INFO - Executing: [delete session: 2f1d706d-5b64-435e-b863-b540a1c2262f])
+10:58:16.320 INFO - Done: [delete session: 2f1d706d-5b64-435e-b863-b540a1c2262f]
