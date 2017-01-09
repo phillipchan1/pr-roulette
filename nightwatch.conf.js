@@ -37,7 +37,8 @@ module.exports = {
       }
     }
   }
-}
+};
+
 /**
  * selenium-download does exactly what it's name suggests;
  * downloads (or updates) the version of Selenium (& chromedriver)
