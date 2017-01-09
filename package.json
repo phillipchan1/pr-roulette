@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server/index.js",
     "dev": "concurrently  \"sudo nodemon\" gulp mongod \"open http://localhost:80\" \"karma start my.conf.js\"",
-    "test": "karma start my.conf.js --single-run",
+    "test": "karma start karma.conf.js --single-run",
     "e2e": "node_modules/.bin/nightwatch --config nightwatch.conf.js"
   },
   "dependencies": {
